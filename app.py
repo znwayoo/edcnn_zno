@@ -3,9 +3,13 @@ from keras.models import load_model
 from keras.preprocessing import image
 import numpy as np
 from PIL import Image
+import os
 
-# Load the trained model
-model = load_model('model/initial_model.keras')
+# Get the current directory of this script
+current_dir = os.path.dirname(__file__)
+
+# Load the trained model with a relative path
+model = load_model('model/initial_model.keras', compile=False)
 
 # Define the class labels
 class_labels = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
@@ -25,7 +29,7 @@ st.title('Emotion Detection')
 uploaded_file = st.file_uploader("Choose an image...", type="jpg")
 
 if uploaded_file is not None:
-    # Load 
+    # Load the image
     img = Image.open(uploaded_file)
     
     # Preprocess the image
@@ -37,5 +41,5 @@ if uploaded_file is not None:
     
     st.write(f'Predicted Emotion: {emotion}')
     
-    #Display Image
+    # Display Image
     st.image(img, caption='Uploaded Image.', use_column_width=True)

@@ -5,7 +5,7 @@ import numpy as np
 from PIL import Image
 
 # Load the trained model
-model = load_model('/Users/zno/AIProjects/ModelTesting/streamlit/model/initial_model.keras')
+model = load_model('/Users/zno/Git/edcnn_zno/model/initial_model.keras')
 
 # Define the class labels
 class_labels = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
